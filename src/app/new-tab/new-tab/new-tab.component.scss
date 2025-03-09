@@ -1,0 +1,67 @@
+.card{
+  width: 1555px;
+  margin: auto;
+ 
+}
+
+.card ::ng-deep .p-tabview .p-tabview-nav{
+  box-sizing: border-box;
+  height: 60px;
+  padding:0px 20px 0 20px;
+  position: relative;
+
+}
+
+.card ::ng-deep .p-tabview .p-tabview-nav li{
+  text-align: center;
+  border-radius: none;
+}
+
+.card ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  height: 100%;
+  padding: 0;
+  margin-top: 2px; //ეს შეილება ზედმეტია !!
+}
+
+.card ::ng-deep .p-tabview .p-tabview-nav li:first-child .p-tabview-nav-link span,
+.card ::ng-deep .p-tabview .p-tabview-nav li:nth-last-child(2) .p-tabview-nav-link span {
+
+  padding: 20px;
+  width: 114px;
+}
+
+
+
+.card ::ng-deep .p-tabview .p-tabview-nav li:not(:first-child):not(:nth-last-child(2)) .p-tabview-nav-link span {
+  width: 401.67px;
+
+}
+
+
+.card ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+  border-bottom: 3px solid rgb(255, 138, 0);
+  color: rgb(25, 80, 110);
+}
+
+
+
+
+.card ::ng-deep .p-tabview .p-tabview-nav li:not(.p-highlight) .p-tabview-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 3px; 
+  background-color: transparent; 
+  transition: background-color 0.2s ease; 
+ 
+}
+
+.card ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:hover::after {
+  background-color: rgb(255, 138, 0); 
+}
+
+.card ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:hover {
+ border-bottom-color: rgb(255, 138, 0);;
+}

@@ -1,0 +1,25 @@
+<div class="card">
+  <p-tabView #tabView [(activeIndex)]="activeIndex">
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span (click)="onPrevClick($event)">წინა</span>
+      </ng-template>
+    </p-tabPanel>
+
+    <p-tabPanel header="1">
+      <p>header 1 </p>
+    </p-tabPanel>
+    <p-tabPanel header="2">
+      <p>header 2 </p>
+    </p-tabPanel>
+    <p-tabPanel header="3">
+      <p>header 3 </p>
+    </p-tabPanel>
+
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <span (click)="onNextClick($event)">შემდეგი</span>
+      </ng-template>
+    </p-tabPanel>
+  </p-tabView>
+</div>
