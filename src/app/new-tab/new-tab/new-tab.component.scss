@@ -4,6 +4,10 @@
  
 }
 
+.card ::ng-deep .p-tabview .p-tabview-panels{
+  padding: 0;
+}
+
 .card ::ng-deep .p-tabview .p-tabview-nav{
   box-sizing: border-box;
   height: 60px;

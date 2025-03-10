@@ -6,6 +6,8 @@ import { ButtonModule } from 'primeng/button';
 import { AditionalInfoNewComponent } from './new-tab/aditional-info-new/aditional-info-new.component';
 import { CbcReportsNewComponent } from './new-tab/cbc-reports-new/cbc-reports-new.component';
 import { ReportingEntityNewComponent } from './new-tab/reporting-entity-new/reporting-entity-new.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ReportingEntityNewComponent } from './new-tab/reporting-entity-new/repo
   imports: [
     CommonModule,
     TabViewModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    DividerModule
   ]
 })
 export class NewTabModule { }
