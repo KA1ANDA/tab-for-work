@@ -9,12 +9,14 @@ import { ReportingEntityNewComponent } from './new-tab/reporting-entity-new/repo
 import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
 
+
 @NgModule({
   declarations: [
     NewTabComponent,
     AditionalInfoNewComponent,
     CbcReportsNewComponent,
-    ReportingEntityNewComponent
+    ReportingEntityNewComponent,
+    
   ],
   exports:[
     NewTabComponent
