@@ -8,7 +8,8 @@ import { CbcReportsNewComponent } from './new-tab/cbc-reports-new/cbc-reports-ne
 import { ReportingEntityNewComponent } from './new-tab/reporting-entity-new/reporting-entity-new.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
-
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { DividerModule } from 'primeng/divider';
     TabViewModule,
     ButtonModule,
     InputTextModule,
-    DividerModule
+    DividerModule,
+    CheckboxModule,
+    InputTextareaModule
   ]
 })
 export class NewTabModule { }

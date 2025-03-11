@@ -12,12 +12,33 @@
     </div>
 
     <div>
-        შემადგენელი საწარმოს გადასახადის გადამხდელის მისამართი ::
+        შემადგენელი საწარმოს გადასახადის გადამხდელის მისამართი :
     </div>
 
     <div>
         <input type="text" pInputText />
         <input type="text" pInputText />
+    </div>
+
+
+    <div>
+        ძირითადი ეკონომიკური საქმიანობა/საქმიანობები :
+    </div>
+
+    <div class="checkboxes-wrap">
+        <div class="checkboxes-main">
+            <div *ngFor="let option of options" class="field-checkbox">
+                <p-checkbox [label]="option.name" name="group" [value]="option" />
+            </div>
+        </div>
+
+        <div class="checkboxes-side">
+            <p-checkbox label="სხვა" name="group" value="სხვა" />
+
+            <textarea   pInputTextarea ></textarea>
+        </div>
+
+
     </div>
 
     <p-button label="დამატება">
