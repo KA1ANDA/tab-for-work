@@ -1,54 +1,101 @@
-<form>
+<form [formGroup]="formGroup">
     <div class="section">
         <div>
-            <input type="text" pInputText />
-            <input type="text" pInputText />
+            <!-- Using our custom input component -->
+            <app-custom-input
+                type="text"
+                label="Field 1"
+                [icon]="calendarIcon"
+                placeholder="Placeholder"
+                [required]="true"
+            ></app-custom-input>    
+            
+            <app-custom-input
+                type="calendar"
+                label="Field 2"
+                [icon]="calendarIcon"
+      
+            ></app-custom-input>
         </div>
-        <input type="text" pInputText />
-        <input type="text" pInputText />
-        <input type="text" pInputText />
-        <input type="text" pInputText />
+        
+        <!-- More fields using custom input component -->
+        <app-custom-input
+            type="text"
+            label="Field 3"
+       
+        ></app-custom-input>
+        
+        <app-custom-input
+            type="text"
+            label="Field 4"
+    
+        ></app-custom-input>
+        <app-custom-input
+        type="text"
+        label="Field 4"
 
+    ></app-custom-input>
+    <app-custom-input
+    type="text"
+    label="Field 4"
+></app-custom-input>
     </div>
 
-    <div>
+    <div class="section-header">
         შემადგენელი საწარმოს გადასახადის გადამხდელის მისამართი :
     </div>
 
-    <div>
-        <input type="text" pInputText />
-        <input type="text" pInputText />
+    <div formGroupName="address" class="address-section">
+        <app-custom-input
+            type="text"
+            label="Address Field 1"
+            
+            [required]="true"
+        ></app-custom-input>
+        
+        <app-custom-input
+            type="text"
+            label="Address Field 2"
+        
+        ></app-custom-input>
     </div>
 
-
-    <div>
+    <div class="section-header">
         ძირითადი ეკონომიკური საქმიანობა/საქმიანობები :
     </div>
 
     <div class="checkboxes-wrap">
         <div class="checkboxes-main">
             <div *ngFor="let option of options" class="field-checkbox">
-                <p-checkbox [label]="option.name" name="group" [value]="option" />
+                <p-checkbox
+                    [label]="option.name"
+                    [value]="option.value"
+                
+                ></p-checkbox>
             </div>
         </div>
 
         <div class="checkboxes-side">
-            <p-checkbox label="სხვა" name="group" value="სხვა" />
+            <p-checkbox
+                label="სხვა"
+                value="other"
+             
+            ></p-checkbox>
 
-            <textarea   pInputTextarea ></textarea>
+            <app-custom-input
+                type="textarea"
+            
+                width="258px"
+                height="122px"
+            ></app-custom-input>
         </div>
-
-
     </div>
 
-    <p-button label="დამატება">
+    <p-button label="დამატება" (click)="onSubmit()">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M11 7V15M7 11H15M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z"
                 stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
     </p-button>
-
-
-
 </form>
