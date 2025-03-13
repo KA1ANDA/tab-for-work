@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ReportingEntityNewComponent {
 
-  
 
     options: any[] = [
         { name: 'კვლევა და განვითარება' },

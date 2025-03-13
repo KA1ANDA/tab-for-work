@@ -10,6 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     InputTextModule,
     DividerModule,
     CheckboxModule,
-    InputTextareaModule
+    InputTextareaModule,
+    FormsModule
   ]
 })
 export class NewTabModule { }

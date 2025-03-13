@@ -28,17 +28,23 @@
     <div class="checkboxes-wrap">
         <div class="checkboxes-main">
             <div *ngFor="let option of options" class="field-checkbox">
-                <p-checkbox [label]="option.name" name="group" [value]="option" />
+                <div class="checkbox-wrap">
+                    <p-checkbox [label]="option.name" name="group" [value]="option" />
+                </div>               
             </div>
         </div>
 
         <div class="checkboxes-side">
-            <p-checkbox label="სხვა" name="group" value="სხვა" />
-
-            <textarea   pInputTextarea ></textarea>
+            <div class="checkbox-wrap">
+                <p-checkbox 
+                    label="სხვა" 
+                    name="group" 
+                    value="სხვა"
+                    binary="true"> 
+                </p-checkbox>
+            </div>
+            <textarea pInputTextarea></textarea>
         </div>
-
-
     </div>
 
     <p-button label="დამატება">

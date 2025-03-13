@@ -1,89 +1,198 @@
-form{
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  gap: 20px;
-
-  & > div{
+form {
     display: flex;
-    gap: 31.33px;
-  }
-
-  input{
-    width: 483.67px;
-    height: 54px;
-  }
-
-  .section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
     gap: 20px;
 
-
-    & > div{
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      column-gap: 31.33px;
-      row-gap: 20px;
-      border-bottom: 1px solid black;
-      padding-bottom: 20px;
-    }
-  }
-
-
-  ::ng-deep{
-    .p-button{display: flex;
-    gap: 20px;
-    padding: 15px 20px;
-    border-radius: 15px;
-    background-color: #143FBF;
-    float: right;
-    
-    }
-    .p-button:hover{
-      box-shadow: 0px 15px 20px 0px #bad3f2 ;
-
-    }
-  } 
-  
-  
-  .checkboxes-wrap{
-
-    display: flex;
-    gap: 30px;
-    border-bottom: 1px solid black;
-    padding-bottom: 20px;
-
-    .checkboxes-main{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      row-gap: 20px;
-      column-gap: 30px;
+    &>div {
+        display: flex;
+        gap: 31.33px;
     }
 
-    .checkboxes-side{
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-
-      textarea {
-        width: 258px ;
-        height: 122px ;
-        resize: none; 
-      }
-      
+    input {
+        width: 483.67px;
+        height: 54px;
     }
 
-    .field-checkbox{
-      display: flex;
-      align-items: center;
-      text-align: start;
+    .section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+
+
+        &>div {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            column-gap: 31.33px;
+            row-gap: 20px;
+            border-bottom: 1px solid black;
+            padding-bottom: 20px;
+        }
     }
-  }
-  
- 
+
+
+    ::ng-deep {
+        .p-button {
+            display: flex;
+            gap: 20px;
+            padding: 15px 20px;
+            border-radius: 15px;
+            background-color: #143FBF;
+            float: right;
+
+        }
+
+        .p-button:hover {
+            box-shadow: 0px 15px 20px 0px #bad3f2;
+
+        }
+    }
+
+
+    .checkboxes-wrap {
+
+        display: flex;
+        gap: 30px;
+        border-bottom: 1px solid black;
+        padding-bottom: 20px;
+
+        .checkboxes-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 20px;
+            column-gap: 30px;
+        }
+
+        .checkboxes-side {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+
+            textarea {
+                width: 258px;
+                height: 122px;
+                resize: none;
+            }
+
+        }
+
+        .field-checkbox {
+            display: flex;
+            align-items: center;
+            text-align: start;
+        }
+
+
+        ::ng-deep {
+            .p-checkbox .p-checkbox-box {
+                box-sizing: border-box;
+                border: 1px solid #e3e7ed;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: box-shadow 0.2s ease-in-out;
+                position: relative;
+
+                
+
+                &:active {
+                    border-color: #143fbf;
+
+                    &:not(.p-highlight):hover::after {
+                        opacity: 1;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='9' viewBox='0 0 11 9' fill='none'%3E%3Cpath d='M1 3.7L4.19355 7L10 1' stroke='%23143FBF' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+
+                    }
+                }
+
+                &:hover,
+                &:hover .p-highlight
+                {
+                    box-shadow: 0 0 0 0.2rem #BFDBFE;
+                }
+
+              
+                
+
+
+
+                &:not(.p-highlight):hover::after {
+                    content: "";
+                    position: absolute;
+                    width: 11px;
+                    height: 9px;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='9' viewBox='0 0 11 9' fill='none'%3E%3Cpath d='M1 3.7L4.19355 7L10 1' stroke='%23E3E7ED' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    opacity: 0.5;
+                    transition: opacity 0.2s ease-in-out;
+
+                }
+
+
+                &.p-highlight {
+                    background: none;
+                }
+
+
+
+
+            }
+
+            .p-checkbox .p-checkbox-box .p-icon {
+                display: none;
+            }
+
+            .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
+                outline: 0 none;
+                outline-offset: 0;
+                box-shadow: none;
+
+
+            }
+            .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus:hover {
+                box-shadow: 0 0 0 0.2rem #BFDBFE;
+            }
+
+           
+            .p-checkbox .p-checkbox-box.p-highlight::after {
+                content: "";
+                position: absolute;
+                width: 11px;
+                height: 9px;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='9' viewBox='0 0 11 9' fill='none'%3E%3Cpath d='M1 3.7L4.19355 7L10 1' stroke='%23143FBF' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+
+
+            }
+
+            .p-checkbox.p-checkbox-disabled .p-checkbox-box {
+                background-color: #F5F5F5;
+                opacity: 1;
+            }
+            
+            .p-checkbox.p-checkbox-disabled + label {
+                opacity: 1;
+            }
+            
+           
+
+
+        
+
+           
+           
+        }
+
+    }
+
+
 }
-
