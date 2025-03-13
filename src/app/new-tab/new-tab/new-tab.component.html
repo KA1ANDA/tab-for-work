@@ -1,24 +1,32 @@
-<div class="card">
+<div class="custom-tabview-container">
+  <div class="tab-headers">
+    <div class="tab-header-text " *ngIf="activeIndex === 1">საგადასახადო იურისდიქციის მიხედვით შემოსავლის, გადასახადებისა და ეკონომიკური საქმიანობის განაწილება</div>
+    <div class="tab-header-text" *ngIf="activeIndex === 2">თითოეულ დაჯგუფებაში შემავალი მულტინაციონალურ საწარმოთა ჯგუფის შემადგენელი საწარმოების სია საგადასახადო იურისდიქციების მიხედვით</div>
+    <div class="tab-header-text" *ngIf="activeIndex === 3">დამატებითი ინფორმაცია</div>
+  </div>
+  
   <p-tabView #tabView [(activeIndex)]="activeIndex">
     <p-tabPanel>
       <ng-template pTemplate="header">
-        <span (click)="onPrevClick($event)">წინა</span>
+        <span (click)="onPrevClick($event)" class="header-text">წინა</span>
       </ng-template>
     </p-tabPanel>
 
     <p-tabPanel header="1">
       <app-cbc-reports-new></app-cbc-reports-new>
     </p-tabPanel>
+    
     <p-tabPanel header="2">
       <app-reporting-entity-new></app-reporting-entity-new>
     </p-tabPanel>
+    
     <p-tabPanel header="3">
       <app-aditional-info-new></app-aditional-info-new>
     </p-tabPanel>
 
     <p-tabPanel>
       <ng-template pTemplate="header">
-        <span (click)="onNextClick($event)">შემდეგი</span>
+        <span (click)="onNextClick($event)" class="header-text">შემდეგი</span>
       </ng-template>
     </p-tabPanel>
   </p-tabView>
