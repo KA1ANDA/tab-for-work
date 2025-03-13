@@ -10,10 +10,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { CustomInputComponent } from '../components/custom-input/custom-input.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     InputTextareaModule,
     DropdownModule,
     CalendarModule
+    FormsModule
   ]
 })
 export class NewTabModule { }
