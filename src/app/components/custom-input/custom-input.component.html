@@ -1,7 +1,7 @@
 <div class="custom-input-container" [style.width]="width">
-  <label *ngIf="label" [for]="label">
+  <!-- <label *ngIf="label && type !='checkbox'" [for]="label">
     {{ label }} <span *ngIf="required" class="required-marker">*</span>
-  </label>
+  </label> -->
 
   <!-- Text Input with Icon -->
   <div *ngIf="type === 'text'" class="input-with-icon" [class.has-icon]="hasIcon()" [class.icon-right]="iconPosition === 'right'">
@@ -67,7 +67,7 @@
   </div>
   
   <!-- Checkbox (no icon support) -->
-  <div *ngIf="type === 'checkbox'" class="field-checkbox">
+  <div *ngIf="type === 'checkbox'" class="checkbox-wrap">
     <p-checkbox
       [id]="label"
       [formControl]="formControl"
@@ -76,6 +76,8 @@
       [disabled]="disabled"
       (onChange)="updateValue($event)"
     ></p-checkbox>
+
+    
   </div>
   
   <!-- Error messages -->

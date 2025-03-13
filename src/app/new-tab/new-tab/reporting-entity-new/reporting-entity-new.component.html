@@ -1,44 +1,18 @@
 <form [formGroup]="formGroup">
-    <div class="section">
-        <div>
-            <!-- Using our custom input component -->
-            <app-custom-input
-                type="text"
-                label="Field 1"
-                [icon]="calendarIcon"
-                placeholder="Placeholder"
-                [required]="true"
-            ></app-custom-input>    
-            
-            <app-custom-input
-                type="calendar"
-                label="Field 2"
-                [icon]="calendarIcon"
-      
-            ></app-custom-input>
-        </div>
-        
-        <!-- More fields using custom input component -->
-        <app-custom-input
-            type="text"
-            label="Field 3"
-       
-        ></app-custom-input>
-        
-        <app-custom-input
-            type="text"
-            label="Field 4"
-    
-        ></app-custom-input>
-        <app-custom-input
-        type="text"
-        label="Field 4"
 
-    ></app-custom-input>
-    <app-custom-input
-    type="text"
-    label="Field 4"
-></app-custom-input>
+    <div class="top-side">
+        <div class="section">
+            <app-custom-input type="text"  [icon]="calendarIcon" placeholder="Placeholder"
+                [required]="true"></app-custom-input>
+            <app-custom-input type="calendar"  [icon]="calendarIcon"></app-custom-input>
+        </div>
+
+        <div class="bottom-side">
+            <app-custom-input type="text" ></app-custom-input>
+            <app-custom-input type="text" ></app-custom-input>
+            <app-custom-input type="text" ></app-custom-input>
+            <app-custom-input type="text" ></app-custom-input>
+        </div>
     </div>
 
     <div class="section-header">
@@ -46,18 +20,8 @@
     </div>
 
     <div formGroupName="address" class="address-section">
-        <app-custom-input
-            type="text"
-            label="Address Field 1"
-            
-            [required]="true"
-        ></app-custom-input>
-        
-        <app-custom-input
-            type="text"
-            label="Address Field 2"
-        
-        ></app-custom-input>
+        <app-custom-input type="text" label="Address Field 1" [required]="true"></app-custom-input>
+        <app-custom-input type="text" label="Address Field 2"></app-custom-input>
     </div>
 
     <div class="section-header">
@@ -67,27 +31,20 @@
     <div class="checkboxes-wrap">
         <div class="checkboxes-main">
             <div *ngFor="let option of options" class="field-checkbox">
-                <div class="checkbox-wrap">
-                    <p-checkbox [label]="option.name" name="group" [value]="option" />
-                </div>               
+                
+                    <!-- <p-checkbox  name="group" [value]="option" /> -->
+                    <app-custom-input width="fit-content" type="checkbox" [label]="option.name"></app-custom-input>
+                
             </div>
         </div>
 
         <div class="checkboxes-side">
-            <div class="checkbox-wrap">
-                <p-checkbox 
-                    label="სხვა" 
-                    name="group" 
-                    value="სხვა"
-                    binary="true"> 
-                </p-checkbox>
-            </div>
-            <app-custom-input
-                type="textarea"
+        
+                <!-- <p-checkbox label="სხვა" name="group" value="სხვა" binary="true">
+                </p-checkbox> -->
+                <app-custom-input width="fit-content" type="checkbox" label="სხვა"></app-custom-input>
             
-                width="258px"
-                height="122px"
-            ></app-custom-input>
+            <app-custom-input type="textarea" width="258px" height="122px"></app-custom-input>
         </div>
     </div>
 

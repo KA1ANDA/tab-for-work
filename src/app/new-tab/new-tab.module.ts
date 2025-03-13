@@ -38,7 +38,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CheckboxModule,
     InputTextareaModule,
     DropdownModule,
-    CalendarModule
+    CalendarModule,
     FormsModule
   ]
 })
