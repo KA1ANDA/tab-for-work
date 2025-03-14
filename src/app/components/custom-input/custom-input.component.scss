@@ -4,7 +4,26 @@
   .input-with-icon {
     position: relative;
 
-    
+    //FLOAT LABEL DESIGN
+    ::ng-deep {
+      .p-float-label label {
+        padding-left: 30px;
+        font-size: 14px;
+      }
+
+      .p-float-label input:not(:placeholder-shown) ~ label {
+        top: 30px; // Adjust this value as needed
+        font-size: 12px;
+      }
+
+      .p-float-label input:focus ~ label{
+        top: 15px;
+      }
+
+      
+    }
+    ///////////////////////////////////////////
+
     .input-icon {
       position: absolute;
       top: 50%;
@@ -31,6 +50,8 @@
     
     input, textarea {
       width: 100%;
+      background-color: red;
+      padding-top: 25px;
       
       &.with-left-icon {
         padding-left: 40px; // Make space for the icon

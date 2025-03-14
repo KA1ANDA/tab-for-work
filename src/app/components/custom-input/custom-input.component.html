@@ -1,10 +1,10 @@
 <div class="custom-input-container" [style.width]="width">
-  <!-- <label *ngIf="label && type !='checkbox'" [for]="label">
+  <!-- <label *ngIf="label" [for]="label">
     {{ label }} <span *ngIf="required" class="required-marker">*</span>
   </label> -->
 
   <!-- Text Input with Icon -->
-  <div *ngIf="type === 'text'" class="input-with-icon" [class.has-icon]="hasIcon()" [class.icon-right]="iconPosition === 'right'">
+  <!-- <div *ngIf="type === 'text'" class="input-with-icon" [class.has-icon]="hasIcon()" [class.icon-right]="iconPosition === 'right'">
     <div *ngIf="hasIcon()" class="input-icon" [innerHTML]="getSafeIcon()"></div>
     <input 
       [id]="label"
@@ -18,7 +18,26 @@
       [class.with-left-icon]="hasIcon() && iconPosition === 'left'"
       [class.with-right-icon]="hasIcon() && iconPosition === 'right'"
     />
+  </div> -->
+
+  <div *ngIf="type === 'text'" class="input-with-icon" [class.has-icon]="hasIcon()" [class.icon-right]="iconPosition === 'right'">
+    <div *ngIf="hasIcon()" class="input-icon" [innerHTML]="getSafeIcon()"></div>
+    <p-floatLabel>
+      <input 
+        [id]="label"
+        type="text" 
+        pInputText 
+        [formControl]="formControl"
+        [disabled]="disabled"
+        (input)="updateValue($event)"
+        [style.height]="height"
+        [class.with-left-icon]="hasIcon() && iconPosition === 'left'"
+        [class.with-right-icon]="hasIcon() && iconPosition === 'right'"
+      />
+      <label for="username">{{placeholder}}</label>
+    </p-floatLabel>
   </div>
+  
   
   <!-- Textarea with Icon -->
   <div *ngIf="type === 'textarea'" class="input-with-icon" [class.has-icon]="hasIcon()" [class.icon-right]="iconPosition === 'right'">
@@ -67,7 +86,7 @@
   </div>
   
   <!-- Checkbox (no icon support) -->
-  <div *ngIf="type === 'checkbox'" class="checkbox-wrap">
+  <div *ngIf="type === 'checkbox'" class="field-checkbox">
     <p-checkbox
       [id]="label"
       [formControl]="formControl"
@@ -76,8 +95,6 @@
       [disabled]="disabled"
       (onChange)="updateValue($event)"
     ></p-checkbox>
-
-    
   </div>
   
   <!-- Error messages -->
