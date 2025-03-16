@@ -1,14 +1,16 @@
 <form>
   <div class="section">
     <div>
-      <app-custom-input type="text" [icon]="userIcon" placeholder="Placeholder"
-        [required]="true"></app-custom-input>
-      <app-custom-input type="text" [icon]="calendarIcon" placeholder="Placeholder"
-        [required]="true"></app-custom-input>
-      <app-custom-input type="text"  [icon]="curencyIcon"  placeholder="Placeholder"
+      <app-custom-input type="text" [icon]="userIcon" placeholder="მულტინაციონალური საწარმოთა ჯგუფის სახელწოდება"
+        [disabled]="true">
+      </app-custom-input>
+      <app-custom-input type="text" [icon]="calendarIcon" placeholder="შესაბამისი ფისკალური წელი"
+        [disabled]="true"></app-custom-input>
+      <app-custom-input type="text" [icon]="curencyIcon" placeholder="გამოსაყენებელი ვალუტა *"
         [required]="true"></app-custom-input>
     </div>
-    <app-custom-input type="text"  [icon]="caseIcon" placeholder="Placeholder" [required]="true"></app-custom-input>
+    <app-custom-input type="dropdown" [icon]="caseIcon" placeholder="საგადასახადო იურისდიქცია *"
+      [required]="true"></app-custom-input>
   </div>
 
   <div class="section-header">
@@ -17,19 +19,21 @@
 
   <div class="section">
     <div>
-      <input type="text" pInputText />
-      <input type="text" pInputText />
-      <input type="text" pInputText />
+      <app-custom-input type="text" placeholder="დამოუკიდებელი მხარე *" [required]="true"></app-custom-input>
+      <app-custom-input type="text" placeholder="დამოკიდებული მხარე *" [required]="true"></app-custom-input>
+      <app-custom-input type="text" placeholder="სულ *" [required]="true"></app-custom-input>
     </div>
 
     <div>
-      <input type="text" pInputText />
-      <input type="text" pInputText />
-      <input type="text" pInputText />
-      <input type="text" pInputText />
-      <input type="text" pInputText />
-      <input type="text" pInputText />
-      <input type="text" pInputText />
+      <app-custom-input type="text" placeholder="მოგება ( ზარალი ) მოგების გადასახადმე *"></app-custom-input>
+      <app-custom-input type="text"
+        placeholder="გადახდილი მოგების გადასახადი ( საკასო საფუძველზე ) *"></app-custom-input>
+      <app-custom-input type="text" placeholder="დარიცხული მოგების გადასახადი - მიმდინარე წელი *"></app-custom-input>
+      <app-custom-input type="text" placeholder="კაპიტალი *"></app-custom-input>
+      <app-custom-input type="text" placeholder="დაგროვილი მოგება *"></app-custom-input>
+      <app-custom-input type="text" placeholder="თანამშრომელთან რაოდენობა *"></app-custom-input>
+      <app-custom-input type="text"
+        placeholder="მატერიალური აქტივები (გარდა ნაღდი ფულის / მისი ექვივალენტისა)*"></app-custom-input>
     </div>
 
   </div>
