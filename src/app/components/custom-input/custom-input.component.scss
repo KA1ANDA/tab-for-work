@@ -19,12 +19,22 @@
       .p-float-label label {
         font-size: 14px;
         transition: top 0.2s, font-size 0.2s, padding-left 0.2s;
+    
       }
     
       .p-float-label input.filled ~ label,
       .p-float-label input:focus ~ label {
         top: 15px;
-        font-size: 12px;
+        font-size: 14px;
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden; /* Hide overflow */
+        text-overflow: ellipsis; /* Add ellipsis for overflow text */
+        width: 100%; /* Ensure the label takes up the full width */
+        display: block; /* Ensure the label behaves as a block element */
+        padding-right: 30px;
+        height: 100%;
+    
+
       }
     
       /* Add padding-left when the input has an icon */
@@ -36,6 +46,8 @@
       .p-float-label label:not(.has-icon-label) {
         padding-left: 0;
       }
+
+ 
     }
     ///////////////////////////////////////////
 
@@ -66,7 +78,8 @@
     input, textarea {
       width: 100%;
       // background-color: red;
-      padding-top: 25px;
+      padding-top: 18px;
+      resize: none;
 
       
       &.with-left-icon {

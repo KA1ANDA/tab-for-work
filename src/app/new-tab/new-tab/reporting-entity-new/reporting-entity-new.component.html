@@ -2,16 +2,19 @@
 
     <div class="top-side">
         <div class="section">
-            <app-custom-input type="text"  [icon]="calendarIcon" placeholder="Placeholder"
-                [required]="true"></app-custom-input>
-            <app-custom-input type="calendar"  [icon]="calendarIcon"></app-custom-input>
+            <app-custom-input type="text" [icon]="userIcon" placeholder="მულტინაციონალური საწარმოთა ჯგუფის სახელწოდება"
+                [disabled]="true">
+            </app-custom-input>
+            <app-custom-input type="text" [icon]="calendarIcon"
+                placeholder="შესაბამისი ფისკალური წელი" [disabled]="true">
+            </app-custom-input>
         </div>
 
         <div class="bottom-side">
-            <app-custom-input type="text" ></app-custom-input>
-            <app-custom-input type="text" ></app-custom-input>
-            <app-custom-input type="text" ></app-custom-input>
-            <app-custom-input type="text" ></app-custom-input>
+            <app-custom-input [icon]="caseIcon" type="dropdown" placeholder="საგადასახადო იურისდიქცია *" [required]="true"></app-custom-input>
+            <app-custom-input type="text" placeholder="საგადასახადო იურისდიქციის რეზიდენტი შემადგენელი საწარმოები *" [required]="true"></app-custom-input>
+            <app-custom-input type="text" placeholder="შემადგენელი საწარმოს გადასახადის გადამხდელის საიდენტიფიკაციო ნომერი *" [required]="true"></app-custom-input>
+            <app-custom-input type="text" placeholder="რეგისტრაციის ან დაფუძნების საგადასახადო იურისდიქცია, თუ განსხვავდება რეზიდენტობის საგადასახადო იურისდიქციისგან" [required]="true"></app-custom-input>
         </div>
     </div>
 
@@ -20,8 +23,8 @@
     </div>
 
     <div formGroupName="address" class="address-section">
-        <app-custom-input type="text" label="Address Field 1" [required]="true"></app-custom-input>
-        <app-custom-input type="text" label="Address Field 2"></app-custom-input>
+        <app-custom-input type="dropdown" placeholder="ქვეყანა" [required]="true"></app-custom-input>
+        <app-custom-input type="text" placeholder="მიუთითეთ მისამართი" [required]="true"></app-custom-input>
     </div>
 
     <div class="section-header">
@@ -31,20 +34,20 @@
     <div class="checkboxes-wrap">
         <div class="checkboxes-main">
             <div *ngFor="let option of options" class="field-checkbox">
-                
-                    <!-- <p-checkbox  name="group" [value]="option" /> -->
-                    <app-custom-input width="fit-content" type="checkbox" [label]="option.name"></app-custom-input>
-                
+
+                <!-- <p-checkbox  name="group" [value]="option" /> -->
+                <app-custom-input width="fit-content" type="checkbox" [label]="option.name"></app-custom-input>
+
             </div>
         </div>
 
         <div class="checkboxes-side">
-        
-                <!-- <p-checkbox label="სხვა" name="group" value="სხვა" binary="true">
+
+            <!-- <p-checkbox label="სხვა" name="group" value="სხვა" binary="true">
                 </p-checkbox> -->
-                <app-custom-input width="fit-content" type="checkbox" label="სხვა"></app-custom-input>
-            
-            <app-custom-input type="textarea" width="258px" height="122px"></app-custom-input>
+            <app-custom-input width="fit-content" type="checkbox" label="სხვა"></app-custom-input>
+
+            <app-custom-input placeholder="ჩაწერეთ შენიშვნა *" type="textarea" width="258px" height="122px"></app-custom-input>
         </div>
     </div>
 
