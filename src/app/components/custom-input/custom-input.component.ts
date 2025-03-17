@@ -31,19 +31,32 @@ export class CustomInputComponent implements ControlValueAccessor, OnInit {
   value: any;
   onChange: any = () => {};
   onTouched: any = () => {};
-
+  
+  inputValue: boolean = false;
   constructor(private sanitizer:DomSanitizer){}
 
   ngOnInit() {
     // Initialize the component based on type
     if (this.formControl) {
+     
       // Subscribe to form control changes if provided
       this.formControl.valueChanges.subscribe(value => {
         this.value = value;
         this.onChange(value);
       });
     }
+
+    if (this.disabled) {
+      this.formControl.disable();
+    }
   }
+
+  onInputChange(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.inputValue = !!target.value; // Update boolean based on input content
+  }
+
+
   getSafeIcon(): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(this.icon);
   }

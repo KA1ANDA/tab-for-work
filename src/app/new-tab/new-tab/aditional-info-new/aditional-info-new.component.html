@@ -2,10 +2,14 @@
 
   <div class="section">
     <div>
-      <input type="text" pInputText  />
-      <input type="text" pInputText  />
+      <app-custom-input type="text" [icon]="userIcon" placeholder="მულტინაციონალური საწარმოთა ჯგუფის სახელწოდება"
+      [disabled]="true">
+    </app-custom-input>
+    <app-custom-input type="text" [icon]="calendarIcon" placeholder="მულტინაციონალური საწარმოთა ჯგუფის სახელწოდება"
+    [disabled]="true">
+  </app-custom-input>
     </div>
-    <textarea   pInputTextarea ></textarea>
+    <app-custom-input placeholder="გთხოვთ, წარმოადგინოთ დამატებითი მოკლე ინფორმაცია ან განმარტება, რომელსაც თქვენ აუცილებლად ჩათვლით ან რომელიც ხელს შეუწყობს მულტინაციონალური საწარმოთა ჯგუფის ანგარიშში მოწოდებული სავალდებულო ინფორმაციის გაგებას *" type="textarea" width="1000px" height="130px"></app-custom-input>
   </div>
  
 

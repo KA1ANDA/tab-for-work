@@ -15,6 +15,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { CustomInputComponent } from '../components/custom-input/custom-input.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     InputTextareaModule,
     DropdownModule,
     CalendarModule,
-    FormsModule
+    FormsModule,
+    FloatLabelModule,
+    IconFieldModule,
+    InputIconModule
   ]
 })
 export class NewTabModule { }
