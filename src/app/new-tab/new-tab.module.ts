@@ -18,6 +18,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { OverlayModule } from 'primeng/overlay';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { InputIconModule } from 'primeng/inputicon';
     TabViewModule,
     ButtonModule,
     InputTextModule,
+    TableModule,
     DividerModule,
     CheckboxModule,
     InputTextareaModule,
@@ -45,7 +49,9 @@ import { InputIconModule } from 'primeng/inputicon';
     FormsModule,
     FloatLabelModule,
     IconFieldModule,
-    InputIconModule
+    InputIconModule,
+    OverlayModule,
+    OverlayPanelModule
   ]
 })
 export class NewTabModule { }

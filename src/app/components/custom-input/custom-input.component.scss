@@ -1,54 +1,117 @@
 .custom-input-container {
 
-  
+  // Error state styles
+  &.error-state {
+    .error-message {
+      display: block;
+    }
+  }
+
   .input-with-icon {
     position: relative;
 
-    &.p-disabled input, 
+    &.error-container {
+      .input-icon {
+        svg {
+          path {
+            stroke: #f44336;
+          }
+
+          &[fill="none"] {
+            fill: none;
+          }
+        }
+      }
+    }
+
+    .error-icon {
+      color: #f44336;
+
+      svg {
+
+        path,
+        rect {
+          stroke: #f44336 !important;
+
+          &[fill="#A5B2C0"] {
+            fill: #f44336 !important;
+          }
+        }
+      }
+    }
+
+    &.p-disabled input,
     .p-component:disabled {
       background-color: rgb(245, 245, 245);
-      color: inherit !important; // Keep the default text color
-      opacity: 1 ; // Prevents the faded look in some browsers
+      color: inherit !important;
+      opacity: 1;
     }
-    label{
+
+    label {
       color: #A5B2C0;
+
+      &.error-label {
+        color: #f44336 !important;
+      }
     }
 
     //FLOAT LABEL DESIGN
     ::ng-deep {
+
+      .p-dropdown .p-dropdown-label {
+        padding-top: 18px !important; /* Match the input padding-top */
+        line-height: normal;
+      }
+
+      .p-dropdown-panel {
+        z-index: 9999 !important;
+      }
+
       .p-float-label label {
+
+        line-height: 20px;
         font-size: 14px;
         transition: top 0.2s, font-size 0.2s, padding-left 0.2s;
-    
-      }
-    
-      .p-float-label input.filled ~ label,
-      .p-float-label input:focus ~ label {
-        top: 15px;
-        font-size: 14px;
-        white-space: nowrap; /* Prevent text from wrapping */
-        overflow: hidden; /* Hide overflow */
-        text-overflow: ellipsis; /* Add ellipsis for overflow text */
-        width: 100%; /* Ensure the label takes up the full width */
-        display: block; /* Ensure the label behaves as a block element */
-        padding-right: 30px;
-        height: 100%;
-    
+        transform: translateY(-50%);
+        margin-top: 0;
+        white-space: wrap;
+
 
       }
-    
-      /* Add padding-left when the input has an icon */
+      //for regular inputs
+      .p-float-label input.filled~label,
+      .p-float-label input:focus~label,
+      //for dropdown
+      .p-float-label .p-inputwrapper-focus~label,
+      .p-float-label .p-inputwrapper-filled~label {
+        top: 25%;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        padding-right: 20px;
+        line-height: 16px;
+        max-width: 100%;
+      }
+
+
+
+
       .p-float-label .has-icon-label {
         padding-left: 30px;
       }
-    
-      /* No padding when there is no icon */
+
       .p-float-label label:not(.has-icon-label) {
         padding-left: 0;
       }
 
- 
+      .p-float-label.error-container label,
+      .p-float-label input.error-input~label {
+        color: #f44336;
+      }
     }
+
     ///////////////////////////////////////////
 
     .input-icon {
@@ -61,42 +124,47 @@
       justify-content: center;
       pointer-events: none;
       color: #6c757d;
-      
+
       &.textarea-icon {
-        top: 27px; // Adjust for textarea
+        top: 27px;
       }
     }
-    
+
     &:not(.icon-right) .input-icon {
-      left: 14px; // Left position for left-aligned icons
+      left: 14px;
     }
-    
+
     &.icon-right .input-icon {
-      right: 14px; // Right position for right-aligned icons
+      right: 14px;
     }
-    
-    input, textarea {
+
+    input,
+    textarea {
       width: 100%;
-      // background-color: red;
       padding-top: 18px;
       resize: none;
 
-      
       &.with-left-icon {
-        padding-left: 40px; // Make space for the icon
-      }
-      
-      &.with-right-icon {
-        padding-right: 40px; // Make space for the icon
+        padding-left: 40px;
       }
 
-      
+      &.with-right-icon {
+        padding-right: 40px;
+      }
+
+      &.error-input {
+        border-color: #f44336 !important;
+        background-color: rgba(244, 67, 54, 0.05);
+      }
     }
   }
-  
+
   // Style tweaks for PrimeNG components
   ::ng-deep {
-    .p-inputtext, 
+
+    
+
+    .p-inputtext,
     .p-dropdown,
     .p-calendar {
       width: 100%;
@@ -104,54 +172,75 @@
       border-radius: 7px;
       box-sizing: border-box;
       transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
-      
+
       &:focus {
         box-shadow: 0 0 0 3px rgba(7, 141, 238, 0.2);
-        
       }
-      
+
       &.ng-invalid.ng-touched {
         border-color: #f44336;
       }
 
-      &:not(:focus):not(:disabled):hover{
-        box-shadow: 0 0 0 3px rgba(7, 141, 238, 0.2); 
-        border:1px solid rgb(227, 231, 237);
+      &:not(:focus):not(:disabled):hover {
+        box-shadow: 0 0 0 3px rgba(7, 141, 238, 0.2);
+        border: 1px solid rgb(227, 231, 237);
+      }
+    }
+
+    // Error state styles for components
+    .error-input,
+    .error-dropdown .p-dropdown,
+    .error-calendar .p-calendar,
+    .error-container .p-inputtext,
+    .error-container .p-dropdown,
+    .error-container .p-calendar {
+      border-color: #f44336 !important;
+      background-color: rgba(244, 67, 54, 0.05);
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.25) !important;
       }
 
-      
+      &:hover {
+        border-color: #f44336 !important;
+        box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.25) !important;
+      }
     }
-    
+
+    .input-with-icon.has-icon:not(.icon-right) .p-dropdown .p-dropdown-label {
+      padding-left: 40px !important;
+    }
+
     .p-dropdown {
+      
       .p-dropdown-label {
         padding: 12px;
       }
-      
+
       &.with-left-icon .p-dropdown-label {
         padding-left: 40px;
       }
-      
+
       &.with-right-icon .p-dropdown-label {
         padding-right: 40px;
       }
     }
-    
+
     .p-calendar {
       .p-inputtext {
         padding: 12px;
       }
-      
+
       &.with-left-icon .p-inputtext {
         padding-left: 40px;
       }
-      
+
       &.with-right-icon .p-inputtext {
         padding-right: 40px;
       }
     }
-    
   }
-  
+
   // CHECKBOX //
 
   ::ng-deep {
@@ -198,6 +287,21 @@
       }
     }
 
+    // Error state for checkbox
+    .error-checkbox .p-checkbox-box,
+    .error-container .p-checkbox-box {
+      border-color: #f44336 !important;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(244, 67, 54, 0.25) !important;
+      }
+
+      &.p-highlight::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='9' viewBox='0 0 11 9' fill='none'%3E%3Cpath d='M1 3.7L4.19355 7L10 1' stroke='%23f44336' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+      }
+    }
+
     .p-checkbox .p-checkbox-box .p-icon {
       display: none;
     }
@@ -228,16 +332,17 @@
       opacity: 1;
     }
 
-    .p-checkbox.p-checkbox-disabled + label {
+    .p-checkbox.p-checkbox-disabled+label {
       opacity: 1;
     }
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////
-  
+
   .error-message {
     color: #f44336;
     font-size: 12px;
     margin-top: 5px;
+    display: block;
   }
 }

@@ -1,77 +1,57 @@
-<div class="custom-input-container" [style.width]="width">
-  <!-- <label *ngIf="label" [for]="label">
-    {{ label }} <span *ngIf="required" class="required-marker">*</span>
-  </label> -->
-
+<div class="custom-input-container" [style.width]="width" [class.error-state]="hasError()">
   <!-- Text Input with Icon -->
-  <!-- <div *ngIf="type === 'text'" class="input-with-icon" [class.has-icon]="hasIcon()" [class.icon-right]="iconPosition === 'right'">
-    <div *ngIf="hasIcon()" class="input-icon" [innerHTML]="getSafeIcon()"></div>
-    <input 
-      [id]="label"
-      type="text" 
-      pInputText 
-      [formControl]="formControl"
-      [placeholder]="placeholder"
-      [disabled]="disabled"
-      (input)="updateValue($event)"
-      [style.height]="height"
-      [class.with-left-icon]="hasIcon() && iconPosition === 'left'"
-      [class.with-right-icon]="hasIcon() && iconPosition === 'right'"
-    />
-  </div> -->
-
   <div *ngIf="type === 'text'" class="input-with-icon" [class.has-icon]="hasIcon()"
-    [class.icon-right]="iconPosition === 'right'">
-    <div *ngIf="hasIcon()" class="input-icon" [innerHTML]="getSafeIcon()"></div>
+    [class.icon-right]="iconPosition === 'right'" [class.error-container]="hasError()">
+    <div *ngIf="hasIcon()" class="input-icon" [innerHTML]="getSafeIcon()" [class.error-icon]="hasError()"></div>
     <p-floatLabel>
       <input [id]="label" type="text" pInputText [formControl]="formControl" [disabled]="disabled"
         (input)="onInputChange($event)" [style.height]="height"
         [class.with-left-icon]="hasIcon() && iconPosition === 'left'"
-        [class.with-right-icon]="hasIcon() && iconPosition === 'right'" [class.filled]="inputValue" />
-        <label for="username" [class.has-icon-label]="hasIcon()">{{placeholder}}</label>
+        [class.with-right-icon]="hasIcon() && iconPosition === 'right'" [class.filled]="inputValue"
+        [class.error-input]="hasError()" />
+      <label for="username" [class.has-icon-label]="hasIcon()" [class.error-label]="hasError()">{{placeholder}}</label>
     </p-floatLabel>
   </div>
 
-
   <!-- Textarea with Icon -->
   <div *ngIf="type === 'textarea'" class="input-with-icon" [class.has-icon]="hasIcon()"
-    [class.icon-right]="iconPosition === 'right'">
-    <div *ngIf="hasIcon()" class="input-icon textarea-icon" [innerHTML]="icon"></div>
+    [class.icon-right]="iconPosition === 'right'" [class.error-container]="hasError()">
+    <div *ngIf="hasIcon()" class="input-icon textarea-icon" [innerHTML]="getSafeIcon()" [class.error-icon]="hasError()">
+    </div>
     <textarea [id]="label" pInputTextarea [formControl]="formControl" [placeholder]="placeholder" [disabled]="disabled"
       (input)="updateValue($event)" [style.height]="height"
       [class.with-left-icon]="hasIcon() && iconPosition === 'left'"
-      [class.with-right-icon]="hasIcon() && iconPosition === 'right'"></textarea>
+      [class.with-right-icon]="hasIcon() && iconPosition === 'right'" [class.error-input]="hasError()"></textarea>
   </div>
 
   <!-- Dropdown with Icon -->
   <div *ngIf="type === 'dropdown'" class="input-with-icon" [class.has-icon]="hasIcon()"
-    [class.icon-right]="iconPosition === 'right'">
-    <div *ngIf="hasIcon()" class="input-icon dropdown-icon" [innerHTML]="icon"></div>
-    <p-dropdown [id]="label" [formControl]="formControl" [options]="options" [optionLabel]="optionLabel"
-      [placeholder]="placeholder" [disabled]="disabled" (onChange)="updateValue($event)"
-      [class.with-left-icon]="hasIcon() && iconPosition === 'left'"
-      [class.with-right-icon]="hasIcon() && iconPosition === 'right'"></p-dropdown>
+    [class.icon-right]="iconPosition === 'right'" [class.error-container]="hasError()">
+    <div *ngIf="hasIcon()" class="input-icon" [innerHTML]="getSafeIcon()" [class.error-icon]="hasError()"></div>
+    <p-floatLabel>
+      <p-dropdown [inputId]="label" [formControl]="formControl" [options]="options" [optionLabel]="optionLabel" [optionValue]="optionValue" 
+        [class.p-dropdown-filled]="value !== null && value !== undefined" [disabled]="disabled"
+        (onChange)="updateValue($event)" [class.with-left-icon]="hasIcon() && iconPosition === 'left'"
+        [class.with-right-icon]="hasIcon() && iconPosition === 'right'" [class.error-dropdown]="hasError()">
+      </p-dropdown>
+      <label [for]="label" [class.has-icon-label]="hasIcon()" [class.error-label]="hasError()">{{placeholder}}</label>
+    </p-floatLabel>
   </div>
 
   <!-- Calendar with Icon -->
   <div *ngIf="type === 'calendar'" class="input-with-icon" [class.has-icon]="hasIcon()"
-    [class.icon-right]="iconPosition === 'right'">
-    <div *ngIf="hasIcon()" class="input-icon calendar-icon" [innerHTML]="icon"></div>
+    [class.icon-right]="iconPosition === 'right'" [class.error-container]="hasError()">
+    <div *ngIf="hasIcon()" class="input-icon calendar-icon" [innerHTML]="icon" [class.error-icon]="hasError()"></div>
     <p-calendar [id]="label" [formControl]="formControl" [placeholder]="placeholder" [disabled]="disabled"
       (onSelect)="updateValue($event)" [class.with-left-icon]="hasIcon() && iconPosition === 'left'"
-      [class.with-right-icon]="hasIcon() && iconPosition === 'right'"></p-calendar>
+      [class.with-right-icon]="hasIcon() && iconPosition === 'right'" [class.error-calendar]="hasError()"></p-calendar>
   </div>
 
-  <!-- Checkbox (no icon support) -->
-  <div *ngIf="type === 'checkbox'" class="field-checkbox">
+  <!-- Checkbox -->
+  <div *ngIf="type === 'checkbox'" class="field-checkbox" [class.error-container]="hasError()">
     <p-checkbox [id]="label" [formControl]="formControl" [binary]="true" [label]="label" [disabled]="disabled"
-      (onChange)="updateValue($event)"></p-checkbox>
+      (onChange)="updateValue($event)" [class.error-checkbox]="hasError()"></p-checkbox>
   </div>
 
-  <!-- Error messages -->
-  <small *ngIf="formControl?.invalid && formControl?.touched" class="error-message">
-    <span *ngIf="formControl?.errors?.['required']">This field is required</span>
-    <span *ngIf="formControl?.errors?.['email']">Please enter a valid email address</span>
-    <!-- Add more validation messages as needed -->
-  </small>
+
 </div>

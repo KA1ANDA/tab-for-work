@@ -7,8 +7,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FormStateService {
   private formGroup!: FormGroup;
+
+  private cbcRecords:any[] = [];
+  private reportingEntityRecords:any[]=[];
+  private additionalInfoRecords:any[] = []; 
   
-  private formStatusSubject = new BehaviorSubject<boolean>(false);
+  
+  private formStatusSubject = new BehaviorSubject<boolean>(false);  
+  private combinedDataSubject = new BehaviorSubject<any>(null);
+  
   
   constructor(private fb: FormBuilder) {
     this.initForm();
@@ -79,23 +86,64 @@ export class FormStateService {
   getFormStatus(): Observable<boolean> {
     return this.formStatusSubject.asObservable();
   }
+
+  getCbcRecords():any[]{
+    return [...this.cbcRecords];
+  }
+  setCbcRecords(records:any[]):void{
+    this.cbcRecords = [...records];
+    this.updateCombinedData();
+  }
+
+  getReportingEntityRecords():any[]{
+    return [...this.reportingEntityRecords];
+  }
+  setReportingEntityRecords(records:any[]):void{
+    this.reportingEntityRecords = [...records];
+    this.updateCombinedData();
+  }
+  getAdditionalInfoRecords():any[]{
+    return [this.additionalInfoRecords];
+  }
+  setAdditionalInfoRecords(records:any[]):void{
+    this.additionalInfoRecords = [...records];
+    this.updateCombinedData();
+  }
+
+  private updateCombinedData():void{
+
+    const combinedData = {
+      cbcReports : this.cbcRecords,
+      reportingEntity : this.reportingEntityRecords,
+      additionalInfo : this.additionalInfoRecords
+    };
+      this.combinedDataSubject.next(combinedData);  
+  }
+
+  getCombinedData():Observable<any>{
+    return this.combinedDataSubject.asObservable();
+  }
   
   // Submit the form
   submitForm(): void {
     if (this.formGroup.valid) {
-      const formData = this.formGroup.value;
-      // Implement form submission logic
+      const formData =  {
+        formValues:this.formGroup.value,
+        tableData:{
+          cbcReports: this.cbcRecords,
+          reportingEntity:this.reportingEntityRecords,
+          additionalInfo:this.additionalInfoRecords
+        }
+      };
       console.log('Form submitted:', formData);
       
-      // For example, you might call an API service here
-      // this.apiService.submitForm(formData).subscribe(...)
+     
     } else {
-      // Mark all fields as touched to trigger validation errors
       this.markFormGroupTouched(this.formGroup);
     }
   }
   
-  // Helper method to mark all controls as touched
+  //method to mark all controls as touched
   private markFormGroupTouched(formGroup: FormGroup): void {
     Object.values(formGroup.controls).forEach(control => {
       control.markAsTouched();
@@ -109,5 +157,9 @@ export class FormStateService {
   // Reset the form
   resetForm(): void {
     this.formGroup.reset();
+    this.cbcRecords = [];
+    this.reportingEntityRecords = [];
+    this.additionalInfoRecords = [];
+    this.updateCombinedData();
   }
 }
